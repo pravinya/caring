@@ -1,0 +1,92 @@
+.droplinebar {
+overflow: hidden;
+}
+
+.droplinebar ul {
+margin: 0;
+padding: 0;
+float: left;
+width: 100%;
+font: 13px Arial;
+font-weight: bold;
+/*text-transform: uppercase;*/
+
+}
+
+.droplinebar ul li {
+display: inline;
+background: #659dcc;
+}
+
+.droplinebar ul li a {
+float: left;
+/*color: black;*/
+color: white;
+/*padding: 0px 8px 0px 8px;*/
+padding: 9px 11px;
+text-decoration: none;
+
+
+}
+.droplinebar ul li.First {
+   background: url('../i/down.gif') no-repeat 102px 12px; 
+}
+.droplinebar ul li a:hover, 
+.droplinebar ul li .current, 
+.droplinebar ul li:hover ul li a:hover { /*background of main menu bar links onMouseover*/
+/*color: #7d4199;*/
+}
+
+/* Sub level menus*/
+.droplinebar ul li ul {
+position: absolute;
+z-index: 100;
+left: 0;
+top: 0;
+visibility: hidden;
+background: #0055cc;
+font-size:11px;
+
+display: block;
+    text-decoration: none;
+ 
+    padding: 5px 15px 5px 15px;
+    margin-left: 1px;
+    white-space: nowrap;
+}
+
+/* Sub level menu links style */
+.droplinebar ul li ul li a,  
+.droplinebar ul li:hover ul li a {
+padding: 8px 8px 0px 0px;
+margin: 0;
+background: none;
+color: #fff;
+width:216px;
+
+}
+
+.droplinebar ul li:hover a {
+/*color: #7d4199;*/
+}
+
+
+.droplinebar ul li a:hover, .droplinebar ul li .current{ /*background of main menu bar links onMouseover*/
+color: white;
+background: #464e7f;
+}
+#main-nav{background: #222;
+	background: -moz-linear-gradient(#252525, #0a0a0a);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0a0a0a));
+	background: -webkit-linear-gradient(#252525, #0a0a0a);
+	-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+	clear: both;
+	display: block;
+	float: left;
+	margin: 0 auto 6px;
+	width: 100%;}
+#main-nav > li{height:none;}
+#main-nav > li:first-child{background-color:#0055cc; float:left;width:132px;border-radius:5px;border:1px solid white;}
+#main-nav > li:first-child a:hover{background: #0055cc;color:white;}

@@ -1,0 +1,99 @@
+
+ <?php   
+ 
+$this->beginWidget('zii.widgets.jui.CJuiDialog',array(
+    'id'=>'login',
+     //'cssFile'=>'jquery-ui-1.8.7.custom.css',
+     //'theme'=>'redmond',
+    // 'themeUrl'=>Yii::app()->request->baseUrl.'/css/ui',
+    'options'=>array(
+         'title'=>'User Login',
+         'autoOpen'=>true,
+         'modal'=>true,
+         'width'=>300,
+     ),
+)); 
+
+
+
+?>
+
+
+<div>
+	<?php if(isset(Yii::app()->request->cookies['success'])): ?>
+	<div class="info">
+		<?php echo Yii::app()->request->cookies['success']->value; ?>
+		<?php unset(Yii::app()->request->cookies['success']);?>
+	</div>
+	<?php endif; ?>
+	<?php if(Yii::app()->user->hasFlash('success')):?>
+    <div class="info">
+        <?php echo Yii::app()->user->getFlash('success'); ?>
+    </div>
+	<?php endif; ?>
+	<?php if(Yii::app()->user->hasFlash('mail')):?>
+    <div class="info">
+        <?php echo Yii::app()->user->getFlash('mail'); ?>
+    </div>
+	<?php endif; ?>
+	<div class="form">
+	<?php $form=$this->beginWidget('CActiveForm', array(
+		'id'=>'login-form',
+               //  'action'=>array('/userGroups/user/login'),
+		'enableAjaxValidation'=>false,
+                'enableClientValidation'=>true, 
+             //   'errorMessageType'=>'blocked', 
+		'focus'=>array($model, 'username'),
+	)); ?>
+		<!--<p class="note"><?php echo Yii::t('userGroupsModule.general', 'Fields with {*} are required.', array('{*}' => '<span class="required">*</span>'))?></p>-->
+		
+		
+		
+            <div class="row">
+    <?php echo $form->labelEx($model,'username'); ?>
+    <?php echo $form->textField($model,'username'); ?>
+    <?php //echo $form->error($model,'username'); ?>
+</div>
+
+
+<div class="row">
+    <?php echo $form->labelEx($model,'password'); ?>
+    <?php echo $form->passwordField($model,'password'); ?>
+    <?php echo $form->error($model,'password'); ?>
+</div>
+
+<div class="row">
+   
+   <?php echo $form->checkBox($model,'rememberMe');?>
+   <?php echo $form->labelEx($model,'rememberMe');?>
+</div>
+
+		
+
+
+
+           	<?php if (UserGroupsConfiguration::findRule('registration')): ?>
+		<div class="row">
+			<?php echo CHtml::link(Yii::t('userGroupsModule.general', 'register'), array('/userGroups/user/register'))?>
+		</div>
+		<?php endif; ?>
+		<div class="actions">
+        <?php echo CHtml::submitButton('Log in',array('class'=>'btn primary large')); ?>
+    </div>
+	
+	<?php $this->endWidget('CActiveForm'); ?>
+            
+     
+             <?php ;?>
+	</div><!-- form -->
+    <?php    
+         if(Yii::app()->user->isGuest) {
+                
+                $this->widget('ext.hoauth.HOAuthWidget', array('controllerId' => 'site')); 
+                
+                
+            }?>
+</div>
+<?php $this->endWidget(); ?>
+
+ 

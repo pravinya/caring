@@ -1,0 +1,3 @@
+a:2:{i:0;s:493:"1369330099|function loadPage(me,where){var indirizzo=$(me).attr("href");if(where==undefined){where='#userGroups-container';}
+$.ajax({url:indirizzo,success:function(data){$(where).replaceWith(data);}});return false;}
+function getPermission(baseurl,what,id){if(id!=''){$.ajax({url:baseurl+'/userGroups/admin/accessList?what='+what+'&id='+id,success:function(data){var div=what==1?'user':'group';$('#'+div+'-detail').slideUp('slow',function(){$('#'+div+'-detail').html(data).slideDown();});}});}}";i:1;N;}

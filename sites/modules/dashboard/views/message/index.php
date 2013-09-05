@@ -1,0 +1,1 @@
+<h2>No messages yet</h2>
